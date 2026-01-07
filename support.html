@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support - Bubble Speed</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos específicos para centrar el contenido de soporte */
+        .support-container {
+            min-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+        }
+        .support-card {
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 15px;
+            border: 1px solid var(--neon-blue);
+            max-width: 500px;
+            width: 100%;
+            box-shadow: 0 0 30px rgba(0, 243, 255, 0.1);
+        }
+        .back-link {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            text-decoration: none;
+            color: white;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-family: 'Orbitron', sans-serif;
+            border: 1px solid transparent;
+            transition: 0.3s;
+        }
+        .back-link:hover {
+            border-color: var(--neon-yellow);
+            color: var(--neon-yellow);
+        }
+        .btn-big-support {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            text-decoration: none;
+            background: var(--neon-blue);
+            color: #000;
+            border-radius: 8px;
+            font-weight: bold;
+            font-family: 'Orbitron', sans-serif;
+            transition: 0.3s;
+        }
+        .btn-big-support:hover {
+            background: white;
+            box-shadow: 0 0 20px white;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bg-overlay"></div>
+
+    <a href="index.html" class="back-link">← BACK</a>
+
+    <section class="support-container">
+        <div class="support-card">
+            <h1 class="neon-yellow">SUPPORT CENTER</h1>
+            <p style="color: #ccc; margin: 20px 0;">
+                Need help with your account? Found a bug? Or just want to suggest an improvement?
+                <br><br>
+                Our team is ready to assist you.
+            </p>
+            
+            <a href="mailto:infobubblespeed@gmail.com" class="btn-big-support">
+                CONTACT SUPPORT
+            </a>
+            
+            <p style="font-size: 0.8rem; color: #666; margin-top: 20px;">
+                Direct Email: infobubblespeed@gmail.com
+            </p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 NeoWaveCode. Bubble Speed.</p>
+    </footer>
+
+</body>
+</html>

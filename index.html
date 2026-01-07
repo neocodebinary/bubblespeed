@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bubble Speed - NeoWaveCode</title>
+    <link rel="icon" type="image/png" href="image.png">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <canvas id="bgCanvas"></canvas>
+
+    <div class="bg-overlay"></div>
+
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="image.png" alt="Bubble Speed Logo" class="app-logo">
+                <span class="neon-yellow">BUBBLE</span> <span class="neon-blue">SPEED</span>
+            </div>
+
+            <div class="nav-right">
+                <select id="language-selector" onchange="changeLanguage(this.value)">
+                    <option value="es">🇪🇸 Español</option>
+                    <option value="en">🇺🇸 English</option>
+                    <option value="fr">🇫🇷 Français</option>
+                    <option value="de">🇩🇪 Deutsch</option>
+                    <option value="it">🇮🇹 Italiano</option>
+                    <option value="pt">🇵🇹 Português</option>
+                    <option value="ru">🇷🇺 Русский</option>
+                    <option value="ja">🇯🇵 日本語</option>
+                    <option value="zh">🇨🇳 中文</option>
+                    <option value="ko">🇰🇷 한국어</option>
+                    <option value="ar">🇸🇦 العربية</option>
+                    <option value="hi">🇮🇳 हिन्दी</option>
+                    <option value="tr">🇹🇷 Türkçe</option>
+                    <option value="nl">🇳🇱 Nederlands</option>
+                    <option value="pl">🇵🇱 Polski</option>
+                    <option value="sv">🇸🇪 Svenska</option>
+                    <option value="id">🇮🇩 Indonesia</option>
+                    <option value="vi">🇻🇳 Tiếng Việt</option>
+                    <option value="th">🇹🇭 ไทย</option>
+                    <option value="el">🇬🇷 Ελληνικά</option>
+                </select>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1 id="hero-title" style="transition: opacity 0.5s ease-in-out;">VELOCIDAD <br><span
+                    class="neon-blue">IMPOSIBLE</span></h1>
+            <p data-i18n="heroDesc">Explota burbujas, sube de nivel y conquista el Top 100 Mundial. ¿Tienes los reflejos
+                necesarios?</p>
+
+            <div class="cta-buttons" id="download">
+                <a href="https://play.google.com/store/apps/details?id=com.neowavecode.bubblespeed"
+                    class="store-button android">
+                    <span data-i18n="availableOn">Disponible en</span>
+                    <strong>Google Play</strong>
+                </a>
+                <a href="https://apps.apple.com/us/app/bubble-speed-arcade/id6756331623" class="store-button ios">
+                    <span data-i18n="getItOn">Consíguelo en</span>
+                    <strong>App Store</strong>
+                </a>
+            </div>
+        </div>
+
+        <div class="hero-image">
+            <div class="phone-mockup">
+                <video class="video-screen" autoplay muted loop playsinline>
+                    <source src="gameplay.mp4" type="video/mp4">
+                    Tu navegador no soporta video.
+                </video>
+            </div>
+        </div>
+    </section>
+
+    <!-- MAIN GAME INFO GRID -->
+    <section class="content-section">
+        <div class="info-grid">
+            <!-- ARENA -->
+            <div class="info-col">
+                <h2 data-i18n="arenaTitle">ARENA ONLINE</h2>
+                <p data-i18n="arenaDesc">Demuestra quién es el más rápido en tiempo real. Enfréntate a jugadores de todo
+                    el mundo o reta a tus amigos.</p>
+                <ul class="mode-list">
+                    <li data-i18n="arenaMode1"><strong>Matchmaking:</strong> Encuentra rivales de tu nivel al instante.
+                    </li>
+                    <li data-i18n="arenaMode2"><strong>Sala Privada:</strong> Crea una sala y comparte el código con tus
+                        amigos para duelos épicos.</li>
+                </ul>
+            </div>
+
+            <!-- AVATAR -->
+            <div class="info-col">
+                <h2 data-i18n="avatarTitle">AVATAR STUDIO</h2>
+                <p data-i18n="avatarDesc">No seas uno más. Crea un avatar único que te represente en la arena y en los
+                    rankings.</p>
+                <ul class="mode-list">
+                    <li data-i18n="avatarFeat1">Millones de combinaciones posibles.</li>
+                    <li data-i18n="avatarFeat2">Estilo futurista y cyberpunk.</li>
+                    <li data-i18n="avatarFeat3">Desbloquea accesorios exclusivos jugando.</li>
+                </ul>
+            </div>
+
+            <!-- RANKING -->
+            <div class="info-col">
+                <h2 data-i18n="rankingTitle">RANKING MUNDIAL</h2>
+                <p data-i18n="rankingDesc">Solo los 100 jugadores más rápidos del planeta tienen el honor de aparecer
+                    aquí. ¿Llegarás a la cima?</p>
+                <div class="ranking-badge">
+                    <span>TOP 100</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="features-grid-section">
+        <h2 data-i18n="featuresTitle">CARACTERÍSTICAS</h2>
+        <div class="feature-grid">
+            <div class="card">
+                <h3 data-i18n="feat1Title">🏆 Competitivo</h3>
+                <p data-i18n="feat1Desc">Compite por la gloria en el ranking global.</p>
+            </div>
+            <div class="card">
+                <h3 data-i18n="feat2Title">⚡ Habilidad Pura</h3>
+                <p data-i18n="feat2Desc">Sin 'Pay to Win'. Tu habilidad lo es todo.</p>
+            </div>
+            <div class="card">
+                <h3 data-i18n="feat3Title">👾 Estilo Único</h3>
+                <p data-i18n="feat3Desc">Gráficos de neón y banda sonora inmersiva.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-links">
+            <a href="privacy.html" data-i18n="privacy">Política de Privacidad</a>
+            <a href="terms.html" data-i18n="terms">Términos y Condiciones</a>
+            <a href="support.html" data-i18n="contact">Contacto</a>
+        </div>
+        <p>&copy; 2025 NeoWaveCode. Bubble Speed.</p>
+    </footer>
+
+    <script src="background.js"></script>
+    <script>
+        const translations = {
+            es: {
+                heroKeywords: ["VELOCIDAD <br><span class='neon-blue'>IMPOSIBLE</span>", "REFLEJOS <br><span class='neon-blue'>EXTREMOS</span>", "HABILIDAD <br><span class='neon-blue'>PURA</span>", "RESISTENCIA <br><span class='neon-blue'>TOTAL</span>"],
+                heroDesc: "Explota burbujas, sube de nivel y conquista el Top 100 Mundial. ¿Tienes los reflejos necesarios?", availableOn: "Disponible en", getItOn: "Consíguelo en", featuresTitle: "CARACTERÍSTICAS", feat1Title: "🏆 Ranking Top 100", feat1Desc: "Solo los 100 mejores aparecen en la lista.", feat2Title: "⚡ Habilidad Pura", feat2Desc: "Solo tus reflejos determinan tu puntuación.", feat3Title: "👾 Crea tu Avatar", feat3Desc: "Personaliza tu personaje animado.", privacy: "Política de Privacidad", terms: "Términos y Condiciones", contact: "Contacto",
+                arenaTitle: "ARENA ONLINE", arenaDesc: "Demuestra quién es el más rápido en tiempo real.", arenaMode1: "<strong>Matchmaking:</strong> Encuentra rivales de tu nivel.", arenaMode2: "<strong>Sala Privada:</strong> Duelos épicos con amigos.",
+                avatarTitle: "AVATAR STUDIO", avatarDesc: "Crea un avatar único que te represente.", avatarFeat1: "Millones de combinaciones.", avatarFeat2: "Estilo futurista y cyberpunk.", avatarFeat3: "Desbloquea accesorios exclusivos.",
+                rankingTitle: "RANKING MUNDIAL", rankingDesc: "Solo los 100 jugadores más rápidos aparecen aquí.", playNow: "JUGAR AHORA"
+            },
+            en: {
+                heroKeywords: ["IMPOSSIBLE <br><span class='neon-blue'>SPEED</span>", "EXTREME <br><span class='neon-blue'>REFLEXES</span>", "PURE <br><span class='neon-blue'>SKILL</span>", "TOTAL <br><span class='neon-blue'>STAMINA</span>"],
+                heroDesc: "Pop bubbles, level up and conquer the World Top 100.", availableOn: "Available on", getItOn: "Get it on", featuresTitle: "FEATURES", feat1Title: "🏆 Top 100 Ranking", feat1Desc: "Only the best 100 appear on the list.", feat2Title: "⚡ Pure Skill", feat2Desc: "Only your reflexes determine your score.", feat3Title: "👾 Create Avatar", feat3Desc: "Customize your animated character.", privacy: "Privacy Policy", terms: "Terms & Conditions", contact: "Contact",
+                arenaTitle: "ONLINE ARENA", arenaDesc: "Prove who is the fastest in real time.", arenaMode1: "<strong>Matchmaking:</strong> Find rivals instantly.", arenaMode2: "<strong>Private Room:</strong> Epic duels with friends.",
+                avatarTitle: "AVATAR STUDIO", avatarDesc: "Create a unique avatar that represents you.", avatarFeat1: "Millions of combinations.", avatarFeat2: "Futuristic cyberpunk style.", avatarFeat3: "Unlock exclusive items.",
+                rankingTitle: "WORLD RANKING", rankingDesc: "Only the fastest 100 players appear here.", playNow: "PLAY NOW"
+            },
+            fr: {
+                heroKeywords: ["VITESSE <br><span class='neon-blue'>IMPOSSIBLE</span>", "RÉFLEXES <br><span class='neon-blue'>EXTRÊMES</span>", "COMPÉTENCE <br><span class='neon-blue'>PURE</span>", "ENDURANCE <br><span class='neon-blue'>TOTALE</span>"],
+                heroDesc: "Éclatez des bulles et conquérez le Top 100 mondial.", availableOn: "Disponible sur", getItOn: "Télécharger sur", featuresTitle: "FONCTIONNALITÉS", feat1Title: "🏆 Classement Top 100", feat1Desc: "Seuls les 100 meilleurs apparaissent.", feat2Title: "⚡ Compétence Pure", feat2Desc: "Seuls vos réflexes comptent.", feat3Title: "👾 Créer un Avatar", feat3Desc: "Personnalisez votre personnage.", privacy: "Politique de Confidentialité", terms: "Conditions Générales", contact: "Contact",
+                arenaTitle: "ARÈNE EN LIGNE", arenaDesc: "Prouvez votre vitesse.", arenaMode1: "<strong>Matchmaking:</strong> Trouvez des rivaux.", arenaMode2: "<strong>Privé:</strong> Jouez avec des amis.",
+                avatarTitle: "STUDIO D'AVATAR", avatarDesc: "Créez votre avatar unique.", avatarFeat1: "Des millions de combinaisons.", avatarFeat2: "Style Cyberpunk.", avatarFeat3: "Objets exclusifs.",
+                rankingTitle: "CLASSEMENT MONDIAL", rankingDesc: "Seuls les 100 meilleurs apparaissent.", playNow: "JOUER MAINTENANT"
+            },
+            de: {
+                heroKeywords: ["UNMÖGLICHE <br><span class='neon-blue'>GESCHWINDIGKEIT</span>", "EXTREME <br><span class='neon-blue'>REFLEXE</span>", "REINES <br><span class='neon-blue'>KÖNNEN</span>", "TOTALE <br><span class='neon-blue'>AUSDAUER</span>"],
+                heroDesc: "Lass Blasen platzen und erobere die Welt Top 100.", availableOn: "Verfügbar bei", getItOn: "Laden im", featuresTitle: "EIGENSCHAFTEN", feat1Title: "🏆 Top 100 Ranking", feat1Desc: "Nur die besten 100 erscheinen auf der Liste.", feat2Title: "⚡ Reines Können", feat2Desc: "Nur deine Reflexe bestimmen deine Punktzahl.", feat3Title: "👾 Avatar Erstellen", feat3Desc: "Personalisiere deinen animierten Charakter.", privacy: "Datenschutz", terms: "AGB", contact: "Kontakt",
+                arenaTitle: "ONLINE ARENA", arenaDesc: "Zeige, wer der Schnellste ist.", arenaMode1: "<strong>Matchmaking:</strong> Finde Gegner sofort.", arenaMode2: "<strong>Privater Raum:</strong> Duelle mit Freunden.",
+                avatarTitle: "AVATAR STUDIO", avatarDesc: "Erstelle einen einzigartigen Avatar.", avatarFeat1: "Millionen Kombinationen.", avatarFeat2: "Futuristischer Cyberpunk-Stil.", avatarFeat3: "Exklusive Items freischalten.",
+                rankingTitle: "WELTRANGLISTE", rankingDesc: "Nur die 100 Schnellsten sind hier.", playNow: "JETZT SPIELEN"
+            },
+            it: {
+                heroKeywords: ["VELOCITÀ <br><span class='neon-blue'>IMPOSSIBILE</span>", "RIFLESSI <br><span class='neon-blue'>ESTREMI</span>", "ABILITÀ <br><span class='neon-blue'>PURA</span>", "RESISTENZA <br><span class='neon-blue'>TOTALE</span>"],
+                heroDesc: "Scoppia bolle, sali di livello e conquista la Top 100 mondiale.", availableOn: "Disponibile su", getItOn: "Scarica su", featuresTitle: "CARATTERISTICHE", feat1Title: "🏆 Classifica Top 100", feat1Desc: "Solo i migliori 100 appaiono nella lista.", feat2Title: "⚡ Pura Abilità", feat2Desc: "Solo i tuoi riflessi determinano il punteggio.", feat3Title: "👾 Crea Avatar", feat3Desc: "Personalizza il tuo personaggio animato.", privacy: "Privacy", terms: "Termini", contact: "Contatto",
+                arenaTitle: "ARENA ONLINE", arenaDesc: "Dimostra chi è il più veloce.", arenaMode1: "<strong>Matchmaking:</strong> Trova rivali all'istante.", arenaMode2: "<strong>Stanza Privata:</strong> Duelli epici con amici.",
+                avatarTitle: "AVATAR STUDIO", avatarDesc: "Crea un avatar unico.", avatarFeat1: "Milioni di combinazioni.", avatarFeat2: "Stile Cyberpunk.", avatarFeat3: "Sblocca oggetti esclusivi.",
+                rankingTitle: "CLASSIFICA MONDIALE", rankingDesc: "Solo i 100 più veloci sono qui.", playNow: "GIOCA ORA"
+            },
+            pt: {
+                heroKeywords: ["VELOCIDADE <br><span class='neon-blue'>IMPOSSÍVEL</span>", "REFLEXOS <br><span class='neon-blue'>EXTREMOS</span>", "HABILIDADE <br><span class='neon-blue'>PURA</span>", "RESISTÊNCIA <br><span class='neon-blue'>TOTAL</span>"],
+                heroDesc: "Estoure bolhas, suba de nível e conquiste o Top 100 Mundial.", availableOn: "Disponível no", getItOn: "Baixar no", featuresTitle: "RECURSOS", feat1Title: "🏆 Ranking Top 100", feat1Desc: "Apenas os 100 melhores aparecem na lista.", feat2Title: "⚡ Habilidade Pura", feat2Desc: "Apenas seus reflexos contam.", feat3Title: "👾 Criar Avatar", feat3Desc: "Personalize seu personagem animado.", privacy: "Privacidade", terms: "Termos", contact: "Contato",
+                arenaTitle: "ARENA ONLINE", arenaDesc: "Prove quem é o mais rápido.", arenaMode1: "<strong>Matchmaking:</strong> Encontre rivais já.", arenaMode2: "<strong>Sala Privada:</strong> Duelos com amigos.",
+                avatarTitle: "ESTÚDIO DE AVATAR", avatarDesc: "Crie um avatar único.", avatarFeat1: "Milhões de combinações.", avatarFeat2: "Estilo Cyberpunk.", avatarFeat3: "Desbloqueie itens exclusivos.",
+                rankingTitle: "RANKING MUNDIAL", rankingDesc: "Apenas os 100 mais rápidos.", playNow: "JOGAR AGORA"
+            },
+            ru: {
+                heroKeywords: ["НЕВОЗМОЖНАЯ <br><span class='neon-blue'>СКОРОСТЬ</span>", "ЭКСТРЕМАЛЬНЫЕ <br><span class='neon-blue'>РЕФЛЕКСЫ</span>", "ЧИСТЫЙ <br><span class='neon-blue'>НАВЫК</span>", "ПОЛНАЯ <br><span class='neon-blue'>ВЫНОСЛИВОСТЬ</span>"],
+                heroDesc: "Лопай пузыри и покори мировой Топ-100.", availableOn: "Доступно в", getItOn: "Загрузить в", featuresTitle: "ОСОБЕННОСТИ", feat1Title: "🏆 Топ-100 Рейтинг", feat1Desc: "Только 100 лучших в списке.", feat2Title: "⚡ Чистый Навык", feat2Desc: "Только твои рефлексы решают.", feat3Title: "👾 Создать Аватар", feat3Desc: "Настрой своего персонажа.", privacy: "Конфиденциальность", terms: "Условия", contact: "Контакты",
+                arenaTitle: "ОНЛАЙН АРЕНА", arenaDesc: "Докажи, кто быстрее всех.", arenaMode1: "<strong>Матчмейкинг:</strong> Найди соперника.", arenaMode2: "<strong>Приватная комната:</strong> Играй с друзьями.",
+                avatarTitle: "АВАТАР СТУДИЯ", avatarDesc: "Создай уникальный аватар.", avatarFeat1: "Миллионы комбинаций.", avatarFeat2: "Киберпанк стиль.", avatarFeat3: "Эксклюзивные предметы.",
+                rankingTitle: "МИРОВОЙ РЕЙТИНГ", rankingDesc: "Здесь только топ 100.", playNow: "ИГРАТЬ СЕЙЧАС"
+            },
+            ja: {
+                heroKeywords: ["不可能な <br><span class='neon-blue'>スピード</span>", "極限の <br><span class='neon-blue'>反射神経</span>", "純粋な <br><span class='neon-blue'>スキル</span>", "完全な <br><span class='neon-blue'>スタミナ</span>"],
+                heroDesc: "バブルを割り、レベルを上げ、世界のトップ100を征服せよ。", availableOn: "で利用可能", getItOn: "で入手", featuresTitle: "特徴", feat1Title: "🏆 トップ100ランキング", feat1Desc: "ベスト100のみがリストに表示されます。", feat2Title: "⚡ 純粋なスキル", feat2Desc: "反射神経のみがスコアを決定します。", feat3Title: "👾 アバター作成", feat3Desc: "アニメキャラクターをカスタマイズ。", privacy: "プライバシー", terms: "利用規約", contact: "お問い合わせ",
+                arenaTitle: "オンラインアリーナ", arenaDesc: "誰が最速か証明しよう。", arenaMode1: "<strong>マッチメイク:</strong> ライバルを即座に発見。", arenaMode2: "<strong>プライベート:</strong> 友達と対戦。",
+                avatarTitle: "アバタースタジオ", avatarDesc: "ユニークなアバターを作成。", avatarFeat1: "数百万の組み合わせ。", avatarFeat2: "サイバーパンクスタイル。", avatarFeat3: "限定アイテムを解除。",
+                rankingTitle: "世界ランキング", rankingDesc: "最速の100人のみ。", playNow: "今すぐプレイ"
+            },
+            zh: {
+                heroKeywords: ["不可能的 <br><span class='neon-blue'>速度</span>", "极端的 <br><span class='neon-blue'>反应</span>", "纯粹的 <br><span class='neon-blue'>技巧</span>", "完全的 <br><span class='neon-blue'>耐力</span>"],
+                heroDesc: "戳破泡泡，升级并征服世界前100名。", availableOn: "可用於", getItOn: "獲取於", featuresTitle: "特徵", feat1Title: "🏆 前100名排名", feat1Desc: "僅限前100名出現在列表中。", feat2Title: "⚡ 純粹的技巧", feat2Desc: "僅限您的反應決定分數。", feat3Title: "👾 創建頭像", feat3Desc: "自定義您的動畫角色。", privacy: "隱私", terms: "條款", contact: "聯繫",
+                arenaTitle: "在线竞技场", arenaDesc: "证明谁是最快的。", arenaMode1: "<strong>匹配:</strong> 寻找对手。", arenaMode2: "<strong>私人房间:</strong> 与朋友对决。",
+                avatarTitle: "头像工作室", avatarDesc: "创建独特的头像。", avatarFeat1: "数百万种组合。", avatarFeat2: "赛博朋克风格。", avatarFeat3: "解锁独家物品。",
+                rankingTitle: "世界排名", rankingDesc: "只有最快的前100名。", playNow: "立即游戏"
+            },
+            ko: {
+                heroKeywords: ["불가능한 <br><span class='neon-blue'>속도</span>", "극한의 <br><span class='neon-blue'>반사신경</span>", "순수한 <br><span class='neon-blue'>실력</span>", "완전한 <br><span class='neon-blue'>체력</span>"],
+                heroDesc: "버블을 터뜨리고 레벨을 올리고 세계 상위 100위를 정복하세요.", availableOn: "사용 가능", getItOn: "다운로드", featuresTitle: "특징", feat1Title: "🏆 탑 100 랭킹", feat1Desc: "상위 100명만 목록에 표시됩니다.", feat2Title: "⚡ 순수한 실력", feat2Desc: "오직 당신의 반사신경만이 점수를 결정합니다.", feat3Title: "👾 아바타 만들기", feat3Desc: "나만의 캐릭터를 꾸미세요.", privacy: "개인정보처리방침", terms: "이용약관", contact: "연락처",
+                arenaTitle: "온라인 아레나", arenaDesc: "누가 가장 빠른지 증명하세요.", arenaMode1: "<strong>매치메이킹:</strong> 상대를 찾으세요.", arenaMode2: "<strong>비공개 방:</strong> 친구와 대결.",
+                avatarTitle: "아바타 스튜디오", avatarDesc: "독특한 아바타 생성.", avatarFeat1: "수백만 가지 조합.", avatarFeat2: "사이버펑크 스타일.", avatarFeat3: "독점 아이템 잠금 해제.",
+                rankingTitle: "세계 랭킹", rankingDesc: "상위 100명만.", playNow: "지금 플레이"
+            },
+            ar: {
+                heroKeywords: ["سرعة <br><span class='neon-blue'>مستحيلة</span>", "ردود فعل <br><span class='neon-blue'>خارقة</span>", "مهارة <br><span class='neon-blue'>خالصة</span>", "تحمل <br><span class='neon-blue'>كامل</span>"],
+                heroDesc: "فجر الفقاعات واغزُ قائمة أفضل 100 في العالم.", availableOn: "متاح على", getItOn: "احصل عليه من", featuresTitle: "الميزات", feat1Title: "🏆 تصنيف أفضل 100", feat1Desc: "يظهر فقط أفضل 100 في القائمة.", feat2Title: "⚡ مهارة خالصة", feat2Desc: "فقط ردود أفعالك تحدد نتيجتك.", feat3Title: "👾 إنشاء أفاتار", feat3Desc: "قم بتخصيص شخصيتك المتحركة.", privacy: "الخصوصية", terms: "الشروط", contact: "اتصل",
+                arenaTitle: "ساحة عبر الإنترنت", arenaDesc: "أثبت من هو الأسرع.", arenaMode1: "<strong>القبول:</strong> العثور على منافسين.", arenaMode2: "<strong>غرفة خاصة:</strong> مبارزات مع الأصدقاء.",
+                avatarTitle: "ستوديو الأفاتار", avatarDesc: "أنشئ أفاتار فريد.", avatarFeat1: "ملايين التشكيلات.", avatarFeat2: "نمط السايبربانك.", avatarFeat3: "فتح عناصر حصرية.",
+                rankingTitle: "التصنيف العالمي", rankingDesc: "أسرع 100 لاعب فقط.", playNow: "العب الآن"
+            },
+            hi: {
+                heroKeywords: ["असंभव <br><span class='neon-blue'>गति</span>", "चरम <br><span class='neon-blue'>प्रतिवर्त</span>", "शुद्ध <br><span class='neon-blue'>कौशल</span>", "कुल <br><span class='neon-blue'>सहनशक्ति</span>"],
+                heroDesc: "बुलबुले फोड़ें और विश्व के शीर्ष 100 को जीतें।", availableOn: "पर उपलब्ध", getItOn: "यहाँ प्राप्त करें", featuresTitle: "विशेषताएं", feat1Title: "🏆 शीर्ष 100 रैंकिंग", feat1Desc: "सूची में केवल सर्वश्रेष्ठ 100 दिखाई देते हैं।", feat2Title: "⚡ शुद्ध कौशल", feat2Desc: "केवल आपकी सजगता ही आपका स्कोर तय करती है।", feat3Title: "👾 अवतार बनाएँ", feat3Desc: "अपने एनिमेटेड चरित्र को अनुकूलित करें।", privacy: "गोपनीयता", terms: "शर्तें", contact: "संपर्क",
+                arenaTitle: "ऑनलाइन एरिना", arenaDesc: "साबित करें कि कौन सबसे तेज़ है।", arenaMode1: "<strong>मैचमेकिंग:</strong> प्रतिद्वंद्वी खोजें।", arenaMode2: "<strong>निजी कक्ष:</strong> दोस्तों के साथ द्वंद्वयुद्ध।",
+                avatarTitle: "अवतार स्टूडियो", avatarDesc: "एक अनूठा अवतार बनाएँ।", avatarFeat1: "लाखों संयोजन।", avatarFeat2: "साइबरपंक शैली।", avatarFeat3: "अनन्य आइटम अनलॉक करें।",
+                rankingTitle: "विश्व रैंकिंग", rankingDesc: "केवल 100 सबसे तेज़।", playNow: "अभी खेलें"
+            },
+            tr: {
+                heroKeywords: ["İMKANSIZ <br><span class='neon-blue'>HIZ</span>", "EKSTREM <br><span class='neon-blue'>REFLEKSLER</span>", "SAF <br><span class='neon-blue'>YETENEK</span>", "TAM <br><span class='neon-blue'>DAYANIKLILIK</span>"],
+                heroDesc: "Baloncukları patlat, seviye atla ve Dünya İlk 100'ü fethet.", availableOn: "Mevcut", getItOn: "İndir", featuresTitle: "ÖZELLİKLER", feat1Title: "🏆 İlk 100 Sıralama", feat1Desc: "Listede sadece en iyi 100 kişi görünür.", feat2Title: "⚡ Saf Yetenek", feat2Desc: "Puanını sadece reflekslerin belirler.", feat3Title: "👾 Avatar Oluştur", feat3Desc: "Karakterini kişiselleştir.", privacy: "Gizlilik", terms: "Şartlar", contact: "İletişim",
+                arenaTitle: "ONLINE ARENA", arenaDesc: "En hızlı kim kanıtla.", arenaMode1: "<strong>Eşleştirme:</strong> Rakip bul.", arenaMode2: "<strong>Özel Oda:</strong> Arkadaşlarla oyna.",
+                avatarTitle: "AVATAR STÜDYO", avatarDesc: "Eşsiz bir avatar yarat.", avatarFeat1: "Milyonlarca kombinasyon.", avatarFeat2: "Cyberpunk tarzı.", avatarFeat3: "Özel eşyaları aç.",
+                rankingTitle: "DÜNYA SIRALAMASI", rankingDesc: "Sadece en hızlı 100 kişi.", playNow: "ŞİMDİ OYNA"
+            },
+            nl: {
+                heroKeywords: ["ONMOGELIJKE <br><span class='neon-blue'>SNELHEID</span>", "EXTREME <br><span class='neon-blue'>REFLEXEN</span>", "PURE <br><span class='neon-blue'>VAARDIGHEID</span>", "TOTALE <br><span class='neon-blue'>UITHOUDING</span>"],
+                heroDesc: "Laat bubbels knappen en verover de Wereld Top 100.", availableOn: "Beschikbaar op", getItOn: "Download in", featuresTitle: "KENMERKEN", feat1Title: "🏆 Top 100 Ranking", feat1Desc: "Alleen de beste 100 verschijnen.", feat2Title: "⚡ Pure Vaardigheid", feat2Desc: "Alleen je reflexen bepalen je score.", feat3Title: "👾 Maak Avatar", feat3Desc: "Pas je personage aan.", privacy: "Privacy", terms: "Voorwaarden", contact: "Contact",
+                arenaTitle: "ONLINE ARENA", arenaDesc: "Bewijs wie het snelst is.", arenaMode1: "<strong>Matchmaking:</strong> Vind rivalen.", arenaMode2: "<strong>Privékamer:</strong> Speel met vrienden.",
+                avatarTitle: "AVATAR STUDIO", avatarDesc: "Maak een unieke avatar.", avatarFeat1: "Miljoenen combinaties.", avatarFeat2: "Cyberpunk stijl.", avatarFeat3: "Ontgrendel items.",
+                rankingTitle: "WERELDRANGLIJST", rankingDesc: "Alleen de 100 snelsten.", playNow: "NU SPELEN"
+            },
+            pl: {
+                heroKeywords: ["NIEMOŻLIWA <br><span class='neon-blue'>PRĘDKOŚĆ</span>", "EKSTREMALNY <br><span class='neon-blue'>REFLEKS</span>", "CZYSTA <br><span class='neon-blue'>UMIEJĘTNOŚĆ</span>", "PEŁNA <br><span class='neon-blue'>WYTRZYMAŁOŚĆ</span>"],
+                heroDesc: "Przebijaj bańki i podbij światowy ranking Top 100.", availableOn: "Dostępne w", getItOn: "Pobierz z", featuresTitle: "CECHY", feat1Title: "🏆 Ranking Top 100", feat1Desc: "Tylko 100 najlepszych graczy.", feat2Title: "⚡ Czyste Umiejętności", feat2Desc: "Liczy się tylko refleks.", feat3Title: "👾 Stwórz Awatara", feat3Desc: "Spersonalizuj swoją postać.", privacy: "Prywatność", terms: "Warunki", contact: "Kontakt",
+                arenaTitle: "ARENA ONLINE", arenaDesc: "Udowodnij, kto jest najszybszy.", arenaMode1: "<strong>Matchmaking:</strong> Znajdź rywala.", arenaMode2: "<strong>Prywatny Pokój:</strong> Graj z przyjaciółmi.",
+                avatarTitle: "STUDIO AWATARA", avatarDesc: "Stwórz unikalnego awatara.", avatarFeat1: "Miliony kombinacji.", avatarFeat2: "Styl Cyberpunk.", avatarFeat3: "Odblokuj przedmioty.",
+                rankingTitle: "RANKING ŚWIATOWY", rankingDesc: "Tylko 100 najszybszych.", playNow: "ZAGRAJ TERAZ"
+            },
+            sv: {
+                heroKeywords: ["OMÖJLIG <br><span class='neon-blue'>HASTIGHET</span>", "EXTREMA <br><span class='neon-blue'>REFLEXER</span>", "REN <br><span class='neon-blue'>SKICKLIGHET</span>", "TOTAL <br><span class='neon-blue'>UITHÅLLIGHET</span>"],
+                heroDesc: "Spräck bubblor och erövra Världens Topp 100.", availableOn: "Finns på", getItOn: "Hämta i", featuresTitle: "FUNKTIONER", feat1Title: "🏆 Topp 100 Ranking", feat1Desc: "Endast de 100 bästa syns.", feat2Title: "⚡ Ren Skicklighet", feat2Desc: "Endast dina reflexer avgör.", feat3Title: "👾 Skapa Avatar", feat3Desc: "Anpassa din karaktär.", privacy: "Integritet", terms: "Villkor", contact: "Kontakt",
+                arenaTitle: "ONLINE ARENA", arenaDesc: "Bevisa vem som är snabbast.", arenaMode1: "<strong>Matchmaking:</strong> Hitta rivaler.", arenaMode2: "<strong>Privat Rum:</strong> Spela med vänner.",
+                avatarTitle: "AVATAR STUDIO", avatarDesc: "Skapa en unik avatar.", avatarFeat1: "Miljoner kombinationer.", avatarFeat2: "Cyberpunk-stil.", avatarFeat3: "Lås upp föremål.",
+                rankingTitle: "VÄRLDSRANKING", rankingDesc: "Endast de 100 snabbaste.", playNow: "SPELA NU"
+            },
+            id: {
+                heroKeywords: ["KECEPATAN <br><span class='neon-blue'>MUSTAHIL</span>", "REFLEKS <br><span class='neon-blue'>EKSTRIM</span>", "KEAHLIAN <br><span class='neon-blue'>MURNI</span>", "STAMINA <br><span class='neon-blue'>TOTAL</span>"],
+                heroDesc: "Pecahkan gelembung dan taklukkan 100 Besar Dunia.", availableOn: "Tersedia di", getItOn: "Dapatkan di", featuresTitle: "FITUR", feat1Title: "🏆 Peringkat 100 Besar", feat1Desc: "Hanya 100 terbaik yang muncul.", feat2Title: "⚡ Keahlian Murni", feat2Desc: "Hanya refleksmu yang menentukan.", feat3Title: "👾 Buat Avatar", feat3Desc: "Sesuaikan karakter animasimu.", privacy: "Privasi", terms: "Syarat", contact: "Kontak",
+                arenaTitle: "ARENA ONLINE", arenaDesc: "Buktikan siapa yang tercepat.", arenaMode1: "<strong>Matchmaking:</strong> Temukan lawan.", arenaMode2: "<strong>Ruang Pribadi:</strong> Main dengan teman.",
+                avatarTitle: "STUDIO AVATAR", avatarDesc: "Buat avatar unik.", avatarFeat1: "Jutaan kombinasi.", avatarFeat2: "Gaya Cyberpunk.", avatarFeat3: "Buka item eksklusif.",
+                rankingTitle: "PERINGKAT DUNIA", rankingDesc: "Hanya 100 tercepat.", playNow: "MAIN SEKARANG"
+            },
+            vi: {
+                heroKeywords: ["TỐC ĐỘ <br><span class='neon-blue'>KHÔNG TƯỞNG</span>", "PHẢN XẠ <br><span class='neon-blue'>CỰC ĐỘ</span>", "KỸ NĂNG <br><span class='neon-blue'>THUẦN TÚY</span>", "THỂ LỰC <br><span class='neon-blue'>HOÀN HẢO</span>"],
+                heroDesc: "Làm nổ bong bóng và chinh phục Top 100 Thế giới.", availableOn: "Có sẵn trên", getItOn: "Tải xuống tại", featuresTitle: "TÍNH NĂNG", feat1Title: "🏆 Xếp hạng Top 100", feat1Desc: "Chỉ 100 người giỏi nhất xuất hiện.", feat2Title: "⚡ Kỹ năng thuần túy", feat2Desc: "Chỉ phản xạ của bạn quyết định điểm số.", feat3Title: "👾 Tạo Avatar", feat3Desc: "Tùy chỉnh nhân vật của bạn.", privacy: "Riêng tư", terms: "Điều khoản", contact: "Liên hệ",
+                arenaTitle: "ĐẤU TRƯỜNG ONLINE", arenaDesc: "Chứng minh ai nhanh nhất.", arenaMode1: "<strong>Ghép trận:</strong> Tìm đối thủ ngay.", arenaMode2: "<strong>Phòng riêng:</strong> Đấu với bạn bè.",
+                avatarTitle: "XƯỞNG AVATAR", avatarDesc: "Tạo avatar độc đáo.", avatarFeat1: "Hàng triệu kết hợp.", avatarFeat2: "Phong cách Cyberpunk.", avatarFeat3: "Mở khóa vật phẩm.",
+                rankingTitle: "BẢNG XẾP HẠNG", rankingDesc: "Chỉ 100 người nhanh nhất.", playNow: "CHƠI NGAY"
+            },
+            th: {
+                heroKeywords: ["ความเร็ว <br><span class='neon-blue'>ที่เป็นไปไม่ได้</span>", "ปฏิกิริยา <br><span class='neon-blue'>ขั้นสุดยอด</span>", "ทักษะ <br><span class='neon-blue'>ล้วนๆ</span>", "ความอึด <br><span class='neon-blue'>เต็มพิกัด</span>"],
+                heroDesc: "ทำลายฟองสบู่และพิชิต 100 อันดับแรกของโลก", availableOn: "ใช้ได้บน", getItOn: "ดาวน์โหลดที่", featuresTitle: "คุณสมบัติ", feat1Title: "🏆 อันดับ Top 100", feat1Desc: "เฉพาะ 100 คนที่ดีที่สุดเท่านั้น", feat2Title: "⚡ ทักษะล้วนๆ", feat2Desc: "ปฏิกิริยาของคุณกำหนดคะแนน", feat3Title: "👾 สร้างอวาตาร์", feat3Desc: "ปรับแต่งตัวละครของคุณ", privacy: "ความเป็นส่วนตัว", terms: "เงื่อนไข", contact: "ติดต่อ",
+                arenaTitle: "อารีน่าออนไลน์", arenaDesc: "พิสูจน์ว่าใครเร็วที่สุด", arenaMode1: "<strong>จับคู่:</strong> หาคู่ต่อสู้", arenaMode2: "<strong>ห้องส่วนตัว:</strong> เล่นกับเพื่อน",
+                avatarTitle: "อวาตาร์สตูดิโอ", avatarDesc: "สร้างอวาตาร์ที่ไม่เหมือนใคร", avatarFeat1: "การผสมผสานนับล้าน", avatarFeat2: "สไตล์ไซเบอร์พังค์", avatarFeat3: "ปลดล็อกไอเท็มพิเศษ",
+                rankingTitle: "อันดับโลก", rankingDesc: "เฉพาะ 100 คนที่เร็วที่สุด", playNow: "เล่นเลย"
+            },
+            el: {
+                heroKeywords: ["ΑΔΥΝΑΤΗ <br><span class='neon-blue'>ΤΑΧΥΤΗΤΑ</span>", "ΑΚΡΑΙΑ <br><span class='neon-blue'>ΑΝΤΑΝΑΚΛΑΣΤΙΚΑ</span>", "ΚΑΘΑΡΗ <br><span class='neon-blue'>ΔΕΞΙΟΤΗΤΑ</span>", "ΑΠΟΛΥΤΗ <br><span class='neon-blue'>ΑΝΤΟΧΗ</span>"],
+                heroDesc: "Σπάστε φυσαλίδες και κατακτήστε το Παγκόσμιο Top 100.", availableOn: "Διαθέσιμο στο", getItOn: "Αποκτήστε το στο", featuresTitle: "ΧΑΡΑΚΤΗΡΙΣΤΙΚΑ", feat1Title: "🏆 Κατάταξη Top 100", feat1Desc: "Μόνο οι 100 καλύτεροι εμφανίζονται.", feat2Title: "⚡ Καθαρή Δεξιότητα", feat2Desc: "Μόνο τα αντανακλαστικά σας μετράνε.", feat3Title: "👾 Δημιουργία Avatar", feat3Desc: "Προσαρμόστε τον χαρακτήρα σας.", privacy: "Απόρρητο", terms: "Όροι", contact: "Επικοινωνία",
+                arenaTitle: "ONLINE ARENA", arenaDesc: "Αποδείξτε ποιος είναι ο πιο γρήγορος.", arenaMode1: "<strong>Matchmaking:</strong> Βρείτε αντιπάλους.", arenaMode2: "<strong>Ιδιωτικό Δωμάτιο:</strong> Παίξτε με φίλους.",
+                avatarTitle: "AVATAR STUDIO", avatarDesc: "Δημιουργήστε ένα μοναδικό avatar.", avatarFeat1: "Εκατομμύρια συνδυασμοί.", avatarFeat2: "Στυλ Cyberpunk.", avatarFeat3: "Ξεκελειδώστε αντικείμενα.",
+                rankingTitle: "ΠΑΓΚΟΣΜΙΑ ΚΑΤΑΤΑΞΗ", rankingDesc: "Μόνο οι 100 πιο γρήγοροι.", playNow: "ΠΑΙΞΤΕ ΤΩΡΑ"
+            }
+        };
+
+        let heroTypeInterval;
+        let currentKeywordIndex = 0;
+
+        function startHeroTyper(keywords) {
+            if (heroTypeInterval) clearInterval(heroTypeInterval);
+            currentKeywordIndex = 0;
+            const heroTitle = document.getElementById('hero-title');
+            if (!heroTitle) return;
+
+            // Initialize with first
+            heroTitle.innerHTML = keywords[0];
+
+            heroTypeInterval = setInterval(() => {
+                currentKeywordIndex = (currentKeywordIndex + 1) % keywords.length;
+                heroTitle.style.opacity = 0; // Fade out
+                setTimeout(() => {
+                    heroTitle.innerHTML = keywords[currentKeywordIndex];
+                    heroTitle.style.opacity = 1; // Fade in
+                }, 500);
+            }, 3000); // Change every 3 seconds
+        }
+
+        function changeLanguage(lang) {
+            let t = translations[lang];
+            // Shallow fallback for main structure
+            if (!t) t = translations['en'];
+
+            // Update static elements
+            const elements = document.querySelectorAll('[data-i18n]');
+            elements.forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (t[key]) {
+                    el.innerHTML = t[key];
+                }
+            });
+
+            // Start dynamic typer with new language keywords
+            // Ensure keywords exist, else fallback to EN
+            const keywords = t.heroKeywords || translations['en'].heroKeywords;
+            startHeroTyper(keywords);
+
+            document.documentElement.lang = lang;
+        }
+
+        const userLang = navigator.language || navigator.userLanguage;
+        const langCode = userLang.split('-')[0];
+        // Initial load
+        // Note: We need to ensure the ID exists in HTML first (see next edit) but good to have logic ready.
+        if (translations[langCode]) {
+            document.getElementById('language-selector').value = langCode;
+            changeLanguage(langCode);
+        } else {
+            changeLanguage('en');
+        }
+    </script>
+</body>
+
+</html>
